@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfbyvil2hx81n"]
+[gd_scene load_steps=6 format=3 uid="uid://bfbyvil2hx81n"]
 
+[ext_resource type="Script" path="res://scripts/girl.gd" id="1_lkxwf"]
 [ext_resource type="Texture2D" uid="uid://ckeiwkbwssxf" path="res://assets/yues/idle animation v1.png" id="1_pyh41"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ty2ub"]
-size = Vector2(69, 208)
 
 [sub_resource type="Animation" id="Animation_542ih"]
 resource_name = "girl_right"
@@ -27,23 +25,27 @@ _data = {
 "girl_right": SubResource("Animation_542ih")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ty2ub"]
+size = Vector2(69, 208)
+
 [node name="character" type="Node2D"]
 
 [node name="girl" type="CharacterBody2D" parent="."]
+script = ExtResource("1_lkxwf")
 
 [node name="Sprite2D" type="Sprite2D" parent="girl"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_pyh41")
 hframes = 10
-frame = 3
-
-[node name="CharacterBody2D" type="CollisionShape2D" parent="girl"]
-visible = false
-position = Vector2(7, -1)
-shape = SubResource("RectangleShape2D_ty2ub")
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="girl"]
 libraries = {
 "": SubResource("AnimationLibrary_r105b")
 }
 autoplay = "girl_right"
+
+[node name="CharacterBody2D" type="CollisionShape2D" parent="girl"]
+visible = false
+position = Vector2(7, -1)
+shape = SubResource("RectangleShape2D_ty2ub")

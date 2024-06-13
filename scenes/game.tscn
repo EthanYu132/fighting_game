@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxk48ihrhin6a"]
+
+[ext_resource type="PackedScene" uid="uid://bfbyvil2hx81n" path="res://scenes/character.tscn" id="1_jg6k7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rhi0k"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pt7qv"]
+
+[node name="Game" type="Node"]
+
+[node name="edge" type="StaticBody2D" parent="."]
+position = Vector2(0, 323)
+physics_material_override = SubResource("PhysicsMaterial_rhi0k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="edge"]
+shape = SubResource("WorldBoundaryShape2D_pt7qv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="character" parent="." instance=ExtResource("1_jg6k7")]
+position = Vector2(-497, 211)
